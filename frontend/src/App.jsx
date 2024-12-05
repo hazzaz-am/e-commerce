@@ -5,6 +5,7 @@ import { ShopCategoryPage } from "./pages/ShopCategoryPage";
 import { ProductPage } from "./pages/ProductPage";
 import { CartPage } from "./pages/CartPage";
 import { AccountPage } from "./pages/AccountPage";
+import { Footer } from "./components/footer/Footer";
 
 export const App = () => {
 	return (
@@ -25,6 +26,7 @@ export const App = () => {
 					<Route path="/cart" element={<CartPage />} />
 					<Route path="/login" element={<AccountPage />} />
 				</Routes>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
