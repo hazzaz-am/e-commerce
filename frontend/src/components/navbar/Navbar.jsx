@@ -2,24 +2,33 @@ import "./Navbar.css";
 
 import logo from "../assets/logo.png";
 import cart_icon from "../assets/cart_icon.png";
+import nav_dropdown from "../assets/nav_dropdown.png"
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ShopContext } from "../../context/CreateContext";
+import { useRef } from "react";
 
 export const Navbar = () => {
 
+	const menuRef = useRef()
 	const {getTotalCartItems} = useContext(ShopContext)
-
 	const [menu, setMenu] = useState("shop");
+
+	const dropDownToggle = (e) => {
+		menuRef.current.classList.toggle("nav-menu-visible")
+		e.target.classList.toggle("open")
+	}
+
 	return (
 		<div className="navbar">
 			<div className="nav-logo">
 				<img src={logo} alt="logo" />
 				<p>SHOPPER</p>
 			</div>
-
-			<ul className="nav-menu">
+			<img className="nav-dropdown" onClick={dropDownToggle} src={nav_dropdown} alt="" />
+			<ul ref={menuRef} className="nav-menu">
 				<li onClick={() => setMenu("shop")}>
 					<Link style={{ textDecoration: "none" }} to="/">
 						Shop
