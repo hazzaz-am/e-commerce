@@ -7,6 +7,10 @@ import { CartPage } from "./pages/CartPage";
 import { AccountPage } from "./pages/AccountPage";
 import { Footer } from "./components/footer/Footer";
 
+import mens_banner from "./components/assets/banner_mens.png"
+import womens_banner from "./components/assets/banner_women.png"
+import kids_banner from "./components/assets/banner_kids.png"
+
 export const App = () => {
 	return (
 		<div>
@@ -14,12 +18,12 @@ export const App = () => {
 				<Navbar />
 				<Routes>
 					<Route path="/" element={<ShopPage />} />
-					<Route path="/mens" element={<ShopCategoryPage category="men" />} />
+					<Route path="/mens" element={<ShopCategoryPage banner={mens_banner} category="men" />} />
 					<Route
 						path="/womens"
-						element={<ShopCategoryPage category="women" />}
+						element={<ShopCategoryPage banner={womens_banner} category="women" />}
 					/>
-					<Route path="/kids" element={<ShopCategoryPage category="kid" />} />
+					<Route path="/kids" element={<ShopCategoryPage banner={kids_banner} category="kid" />} />
 					<Route path="/product" element={<ProductPage />}>
 						<Route path=":productId" element={<ProductPage />} />
 					</Route>
